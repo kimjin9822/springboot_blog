@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author jin
+ *
+ */
+module hello {
+}
