@@ -6,4 +6,4 @@ spring tool suite 4
 10.28 8080포트연결 및 자동완성 설정
 10.30 github연동 및 mysql연동완료
 10.31 git, MIME, http공부
-
+11.1 http 동작방법 이해 및 put, post, json 사용
