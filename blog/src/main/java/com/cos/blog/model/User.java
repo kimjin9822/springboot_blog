@@ -26,7 +26,7 @@ public class User {
 	
 	@Column(nullable = false, length = 50)
 	private String email; // 이메일
-	
+	  
 	@ColumnDefault("'user'")
 	private String role; //Enum 쓰는게 더좋음
 	
