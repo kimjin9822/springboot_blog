@@ -10,3 +10,4 @@ spring tool suite 4
 11.2 lombok세팅 및 builder 사용
 11.4 yml 연결 및 jsp 연결 완료
 11.7 DB user 테이블 생성
+11.8 Board 테이블 생성
