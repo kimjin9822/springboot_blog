@@ -11,3 +11,4 @@ spring tool suite 4
 11.4 yml 연결 및 jsp 연결 완료
 11.7 DB user 테이블 생성
 11.8 Board 테이블 생성
+11.9 reply 테이블 생성 (댓글 기능)
