@@ -4,11 +4,13 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.ColumnDefault;
+//import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
@@ -37,8 +39,9 @@ public class User {
 	@Column(nullable = false, length = 50)
 	private String email; // 이메일
 	  
-	@ColumnDefault("'user'")
-	private String role; //Enum 쓰는게 더좋음
+	//@ColumnDefault("'user'")
+	@Enumerated(EnumType.STRING)
+	private RoleType role; 
 	
 	@CreationTimestamp //시간 자동 입력
 	private Timestamp createDate;

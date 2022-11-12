@@ -22,7 +22,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -37,13 +36,13 @@ public class Board {
 	@Column(nullable = false, length = 100)
 	private String title;
 	
-	@Lob
+	@Lob //대용량 데이터
 	private String content; // 섬머노트 라이브러리 사용 -> html태그가 섞여서 디자인
 	
 	@ColumnDefault("0")
 	private int count; //조회수
 	
-	@ManyToOne(fetch = FetchType.EAGER) // many = board, one = user
+	@ManyToOne(fetch = FetchType.EAGER)// many = board, one = user
 	@JoinColumn(name = "userId")
 	private User user; //DB는 오브젝트 저장 안됨      FK, 자바는 오브젝트 저장가능
 	

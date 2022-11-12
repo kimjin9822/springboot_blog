@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BlogControllerTest {
 
 @GetMapping("/test/hello")
-	public String heiio() {
+	public String hello() {
 		return "<h1>spring boot</h1>";
 	}
 }
