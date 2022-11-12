@@ -13,3 +13,4 @@ spring tool suite 4
 11.8 Board 테이블 생성
 11.9 reply 테이블 생성 (댓글 기능)
 11.11 reply list추가
+11.12 json, enum 사용하여 회원가입 저장기능 만들기
