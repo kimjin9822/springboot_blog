@@ -14,7 +14,7 @@ spring tool suite 4
 11.9 update 및 delete, 더티체킹 응용 
 11.11 handler 추가, exception 이해
 11.12 화면 구현
-11.13 
-11.15 
+11.13 화면 분할, 
+11.15 로그인, 회원가입 화면 구현
 11.17
 11.18
