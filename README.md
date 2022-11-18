@@ -13,6 +13,8 @@ spring tool suite 4
 11.8 id로 select만들기, paging 테스트
 11.9 update 및 delete, 더티체킹 응용 
 11.11 handler 추가, exception 이해
-11.12 
+11.12 화면 구현
 11.13 
 11.15 
+11.17
+11.18
