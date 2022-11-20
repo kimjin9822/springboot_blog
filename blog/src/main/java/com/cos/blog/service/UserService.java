@@ -15,14 +15,7 @@ public class UserService { // 서비스 필요이유 : 여러개의 트랜잭션
 	private UserRepository userRepository;
 
 	@Transactional //전체 트랙잭션을 하나로 묶음
-	public int 회원가입(User user) {
-		try {
+	public void 회원가입(User user) {
 			userRepository.save(user); // 트랜잭션 
-			return 1;
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("UserService : 회원가입() : " + e.getMessage());
-		}
-		return -1;
 	}
 }
