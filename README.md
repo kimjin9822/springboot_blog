@@ -20,3 +20,4 @@ spring tool suite 4
 11.18 ajax 사용 및 사용이유 학습
 11.19 service, api, 회원가입 세팅 완료
 11.20 responseDto 수정
+11.22 로그인(전통적 방식) 구현
