@@ -17,9 +17,4 @@ public class UserService { // 서비스 필요이유 : 여러개의 트랜잭션
 	public void 회원가입(User user) {
 		userRepository.save(user); // 트랜잭션
 	}
-
-	@Transactional(readOnly = true)
-	public User 로그인(User user) {
-		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword()); // 트랜잭션
-	}
 }
