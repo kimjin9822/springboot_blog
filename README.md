@@ -25,3 +25,4 @@ spring tool suite 4
 11.24 spring security 로그인페이지 커스터마이징
 11.26 해쉬암호 설정
 11.27 spring security 로그인 완료
+11.28 글쓰기 세팅 완료
