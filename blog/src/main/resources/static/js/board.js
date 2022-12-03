@@ -3,6 +3,9 @@ let index = {
 		$("#btn-save").on("click", () => { //function(){} 대신 화살표를 쓴이유 : this를 바인딩 하기 위함
 			this.save();
 		});
+		$("#btn-delete").on("click", () => { 
+			this.deleteById();
+		});
 	},
 
 	save: function() {
@@ -19,6 +22,21 @@ let index = {
 			dataType: "json" // 응답시 javascript로 응답
 		}).done(function(response){
 			alert("글쓰기가 완료되었습니다.");
+			location.href = "/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		}); 
+	},
+	
+	deleteById: function() {
+		let id = $("#id").text();
+		
+		$.ajax({ 
+			type: "DELETE",
+			url: "/api/board/"+id,
+			dataType: "json" 
+		}).done(function(response){
+			alert("삭제가 완료되었습니다.");
 			location.href = "/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
