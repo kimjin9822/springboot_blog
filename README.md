@@ -27,3 +27,4 @@ spring tool suite 4
 11.27 spring security 로그인 완료
 11.28 글쓰기 세팅 완료
 11.30 글목록 페이징 만들기
+12.2 글 상세보기
