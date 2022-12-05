@@ -26,4 +26,15 @@ public class UserService { // 서비스 필요이유 : 여러개의 트랜잭션
 		user.setRole(RoleType.USER);
 		userRepository.save(user); // 트랜잭션
 	}
+	
+	@Transactional
+		public void 회원수정(User user) {
+		User persistance = userRepository.findById(user.getId()).orElseThrow(()->{
+			return new IllegalArgumentException("회원가입실패");
+		});
+		String rawPassword = user.getPassword();
+		String encPassword = encoder.encode(rawPassword);
+		persistance.setPassword(encPassword);
+		persistance.setEmail(user.getEmail());
+	}
 }

@@ -3,6 +3,9 @@ let index = {
 		$("#btn-save").on("click", () => { //function(){} 대신 화살표를 쓴이유 : this를 바인딩 하기 위함
 			this.save();
 		});
+		$("#btn-update").on("click", () => { //function(){} 대신 화살표를 쓴이유 : this를 바인딩 하기 위함
+			this.update();
+		});
 	},
 
 	save: function() {
@@ -21,6 +24,27 @@ let index = {
 			dataType: "json" // 응답시 javascript로 응답
 		}).done(function(response){
 			alert("회원가입이 완료되었습니다.");
+			location.href = "/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		}); 
+	},
+	
+	update: function() {
+		let data = {
+			id: $("#id").val(),
+			password: $("#password").val(),
+			email: $("#email").val()
+		};
+		
+		$.ajax({
+			type: "PUT",
+			url: "/user",
+			data: JSON.stringify(data), 
+			contentType: "application/json; charset=utf-8", 
+			dataType: "json" 
+		}).done(function(response){
+			alert("회원수정이 완료되었습니다.");
 			location.href = "/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
