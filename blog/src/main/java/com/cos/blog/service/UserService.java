@@ -14,27 +14,39 @@ public class UserService { // 서비스 필요이유 : 여러개의 트랜잭션
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder encoder;
+
+	@Transactional(readOnly = true)
+	public User 회원찾기(String username) {
+		User user = userRepository.findByUsername(username).orElseGet(() -> {
+			return new User();
+		});
+		return user;
+	}
 
 	@Transactional // 전체 트랙잭션을 하나로 묶음
 	public void 회원가입(User user) {
 		String rawPassword = user.getPassword(); // 1234원문
-		String encpassword = encoder.encode(rawPassword); // 해쉬
-		user.setPassword(encpassword);
+		String encPassword = encoder.encode(rawPassword); // 해쉬
+		user.setPassword(encPassword);
 		user.setRole(RoleType.USER);
 		userRepository.save(user); // 트랜잭션
 	}
-	
+
 	@Transactional
-		public void 회원수정(User user) {
-		User persistance = userRepository.findById(user.getId()).orElseThrow(()->{
+	public void 회원수정(User user) {
+		User persistance = userRepository.findById(user.getId()).orElseThrow(() -> {
 			return new IllegalArgumentException("회원가입실패");
 		});
-		String rawPassword = user.getPassword();
-		String encPassword = encoder.encode(rawPassword);
-		persistance.setPassword(encPassword);
-		persistance.setEmail(user.getEmail());
+
+		if (persistance.getOauth() == null || persistance.getOauth().equals("")) {
+			String rawPassword = user.getPassword();
+			String encPassword = encoder.encode(rawPassword);
+			persistance.setPassword(encPassword);
+			persistance.setEmail(user.getEmail());
+		}
+
 	}
 }
