@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cos.blog.config.auth.PrincipalDetail;
+import com.cos.blog.dto.ReplySaveRequestDto;
 import com.cos.blog.dto.ResponseDto;
 import com.cos.blog.model.Board;
-import com.cos.blog.model.Reply;
 import com.cos.blog.service.BoardService;
 
 @RestController
@@ -42,9 +42,9 @@ public class BoardApiController {
 	//데이터를 받을 때 컨트롤러에서 dto를 만들어서 받는게 좋다.
 	//이런 방식은 거대한 프로젝트에서는 좋지않음
 	@PostMapping("/api/board/{boardid}/reply")
-	public ResponseDto<Integer> replySave(@PathVariable int boardid, @RequestBody Reply reply, @AuthenticationPrincipal PrincipalDetail principal) {
+	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto) {
 		
-		boardService.댓글쓰기(principal.getUser(), boardid , reply);
+		boardService.댓글쓰기(replySaveRequestDto);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
 }
