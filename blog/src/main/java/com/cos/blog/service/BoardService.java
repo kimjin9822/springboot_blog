@@ -63,21 +63,7 @@ public class BoardService { // 서비스 필요이유 : 여러개의 트랜잭�
 	
 	@Transactional
 	public void 댓글쓰기(ReplySaveRequestDto replySaveRequestDto) {
-		
-		User user = userRepository.findById(replySaveRequestDto.getUserid()).orElseThrow(()->{
-			return new IllegalArgumentException("댓글 쓰기 실패 : 유저 id를 찾을 수 없습니다.");
-		});
-		
-		Board board = boardRepository.findById(replySaveRequestDto.getBoardid()).orElseThrow(()->{
-			return new IllegalArgumentException("댓글 쓰기 실패 : 계시글 id를 찾을 수 없습니다.");
-		});
-		
-		Reply reply = Reply.builder()
-				.user(user)
-				.board(board)
-				.content(replySaveRequestDto.getContent())
-				.build();
-		
-		replyRepository.save(reply);
+		int result = replyRepository.mSave(replySaveRequestDto.getUserid(), replySaveRequestDto.getBoardid(), replySaveRequestDto.getContent());
+		System.out.println("BoardService : "+result); // 오브젝트출력시 자동으로 tostring이 호출됨
 	}
 }
