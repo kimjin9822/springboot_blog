@@ -22,14 +22,17 @@ let index = {
 			data: JSON.stringify(data), //user.js 9line let data 를 JSON 문자열로 변경하여 호출
 			contentType: "application/json; charset=utf-8", //body데이터 타입
 			dataType: "json" // 응답시 javascript로 응답
-		}).done(function(response){
-			alert("회원가입이 완료되었습니다.");
-			location.href = "/";
-		}).fail(function(error){
+		}).done(function(response) {
+
+				alert("회원가입이 완료되었습니다.");
+				location.href = "/";
+			
+
+		}).fail(function(error) {
 			alert(JSON.stringify(error));
-		}); 
+		});
 	},
-	
+
 	update: function() {
 		let data = {
 			id: $("#id").val(),
@@ -37,19 +40,19 @@ let index = {
 			password: $("#password").val(),
 			email: $("#email").val()
 		};
-		
+
 		$.ajax({
 			type: "PUT",
 			url: "/user",
-			data: JSON.stringify(data), 
-			contentType: "application/json; charset=utf-8", 
-			dataType: "json" 
-		}).done(function(response){
+			data: JSON.stringify(data),
+			contentType: "application/json; charset=utf-8",
+			dataType: "json"
+		}).done(function(response) {
 			alert("회원수정이 완료되었습니다.");
 			location.href = "/";
-		}).fail(function(error){
+		}).fail(function(error) {
 			alert(JSON.stringify(error));
-		}); 
+		});
 	}
 }
 index.init();
