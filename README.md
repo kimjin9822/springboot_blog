@@ -39,4 +39,4 @@ spring tool suite 4
 12.20 dto
 12.21 dto 영속화
 12.22 네이티브 쿼리 사용
-
+12.23 @autowired 원리이해
