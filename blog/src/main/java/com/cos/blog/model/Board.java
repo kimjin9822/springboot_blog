@@ -48,7 +48,7 @@ public class Board {
 	@JoinColumn(name = "userId")
 	private User user; //DB는 오브젝트 저장 안됨      FK, 자바는 오브젝트 저장가능
 	
-	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // FK키가 아니라는것을 명시
+	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) // FK키가 아니라는것을 명시
 	@JsonIgnoreProperties({"board"}) //무한참조 방지
 	@OrderBy("id desc")
 	private List<Reply> replys;
